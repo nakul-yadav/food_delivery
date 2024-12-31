@@ -68,14 +68,15 @@ return totalAmount;
 
 
 const fetchFoodList=async ()=>{
-   console.log("gii");
-await axios.get("/api/food/list").then((response)=>{
-   console.log("yes inside axios"); 
- setFoodList(response.data.data);
-}).catch((error))=>{
-console.log(error);
-})
+   try{
+const response=await axios.get(url+"/api/food/list");
+console.log("inside axios");
+setFoodList(response.data.data);
 console.log(food_list);
+   }
+   catch(error){
+   console.log(error);
+   }
 }
 const loadCartData=async (token)=>{
     const res=  await axios.post("/api/cart/get",{},{headers:{token}});
