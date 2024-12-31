@@ -68,7 +68,9 @@ return totalAmount;
 
 
 const fetchFoodList=async ()=>{
+   console.log("gii");
 await axios.get("/api/food/list").then((response)=>{
+   console.log("yes inside axios"); 
  setFoodList(response.data.data);
 }).catch((error))=>{
 console.log(error);
